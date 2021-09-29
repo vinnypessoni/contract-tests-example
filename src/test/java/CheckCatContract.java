@@ -17,6 +17,9 @@ public class CheckCatContract {
     private static final String REAL_CAT_API = "https://api.thecatapi.com";
     private static final String MOCKED_CAT_API = "http://localhost:8090";
     private static final String BRITISH_LONG_HAIR = "/v1/images/search?breed_ids=bslo";
+    private static final String realFullyQualifiedUrl = REAL_CAT_API + BRITISH_LONG_HAIR;
+    private static final String mockedFullyQualifiedUrl = MOCKED_CAT_API + BRITISH_LONG_HAIR;
+
     UrlValidator urlValidator = new UrlValidator();
 
     @BeforeEach
@@ -52,8 +55,6 @@ public class CheckCatContract {
         String realCatUrl, mockedCatUrl;
         String affectionLevelJsonPath = "breeds.affection_level[0][0]";
         String catJsonPath = "url[0]";
-        String realFullyQualifiedUrl = REAL_CAT_API + BRITISH_LONG_HAIR;
-        String mockedFullyQualifiedUrl = MOCKED_CAT_API + BRITISH_LONG_HAIR;
 
         realResponse = getCat(realFullyQualifiedUrl);
         mockedResponse = getCat(mockedFullyQualifiedUrl);
